@@ -1,0 +1,360 @@
+{
+  "metadata": {
+    "data_source": "author-supplied restricted internal corpus",
+    "input_filename": "combined_response_label_orange.jsonl",
+    "n_pairs": 1250,
+    "confidence_level": 0.95,
+    "wilson_z": 1.959963984540054,
+    "bootstrap_resamples": 100000,
+    "bootstrap_seed": 20260709,
+    "analysis_unit": "prompt-response interaction"
+  },
+  "definitions": {
+    "escalation": "max(s_response) > max(s_prompt)",
+    "preservation": "max(s_response) = max(s_prompt)",
+    "reduction": "max(s_response) < max(s_prompt)",
+    "conditional_reduction": "Pr(reduction | max(s_prompt) >= 1)",
+    "category_persistence": "Pr(s_response^c >= 1 | s_prompt^c >= 1)",
+    "category_reduction": "Pr(s_response^c = 0 | s_prompt^c >= 1)",
+    "category_escalation": "s_response^c > s_prompt^c"
+  },
+  "methods": {
+    "proportion_intervals": "two-sided Wilson score 95% confidence intervals",
+    "origin_cross_check": "equal-tailed percentile bootstrap over the 40 escalation cases",
+    "category_differences": "equal-tailed paired percentile bootstrap resampling whole interactions; pointwise 95% and Bonferroni 98.33% per-contrast intervals for at least 95% family-wise coverage across three Sexual-versus-other contrasts"
+  },
+  "overall_transitions": {
+    "escalation": {
+      "numerator": 40,
+      "denominator": 1250,
+      "estimate": 0.032,
+      "ci_95_wilson": [
+        0.023587077127465488,
+        0.04328059440379139
+      ],
+      "ci_width": 0.0196935172763259
+    },
+    "preservation": {
+      "numerator": 447,
+      "denominator": 1250,
+      "estimate": 0.3576,
+      "ci_95_wilson": [
+        0.33150323793765046,
+        0.38456931852827025
+      ],
+      "ci_width": 0.05306608059061979
+    },
+    "reduction": {
+      "numerator": 763,
+      "denominator": 1250,
+      "estimate": 0.6104,
+      "ci_95_wilson": [
+        0.5830671175558136,
+        0.637056406082967
+      ],
+      "ci_width": 0.053989288527153345
+    },
+    "conditional_reduction_given_harmful_prompt": {
+      "numerator": 763,
+      "denominator": 854,
+      "estimate": 0.8934426229508197,
+      "ci_95_wilson": [
+        0.8709581288716903,
+        0.9124034038336919
+      ],
+      "ci_width": 0.041445274962001566
+    },
+    "harmful_response_prevalence": {
+      "numerator": 141,
+      "denominator": 1250,
+      "estimate": 0.1128,
+      "ci_95_wilson": [
+        0.09643590657050778,
+        0.13153666269637823
+      ],
+      "ci_width": 0.03510075612587045
+    }
+  },
+  "category_persistence_reduction": {
+    "Hate": {
+      "harmful_prompts": 329,
+      "persistence": {
+        "numerator": 24,
+        "denominator": 329,
+        "estimate": 0.0729483282674772,
+        "ci_95_wilson": [
+          0.04950807155685033,
+          0.10624613948517544
+        ],
+        "ci_width": 0.056738067928325114
+      },
+      "reduction_to_safe": {
+        "numerator": 305,
+        "denominator": 329,
+        "estimate": 0.9270516717325228,
+        "ci_95_wilson": [
+          0.8937538605148245,
+          0.9504919284431497
+        ],
+        "ci_width": 0.05673806792832514
+      }
+    },
+    "Self-harm": {
+      "harmful_prompts": 106,
+      "persistence": {
+        "numerator": 12,
+        "denominator": 106,
+        "estimate": 0.11320754716981132,
+        "ci_95_wilson": [
+          0.06595682056427885,
+          0.18751267191708645
+        ],
+        "ci_width": 0.12155585135280761
+      },
+      "reduction_to_safe": {
+        "numerator": 94,
+        "denominator": 106,
+        "estimate": 0.8867924528301887,
+        "ci_95_wilson": [
+          0.8124873280829136,
+          0.9340431794357212
+        ],
+        "ci_width": 0.12155585135280766
+      }
+    },
+    "Sexual": {
+      "harmful_prompts": 189,
+      "persistence": {
+        "numerator": 47,
+        "denominator": 189,
+        "estimate": 0.24867724867724866,
+        "ci_95_wilson": [
+          0.192471663440426,
+          0.31489568079683206
+        ],
+        "ci_width": 0.12242401735640607
+      },
+      "reduction_to_safe": {
+        "numerator": 142,
+        "denominator": 189,
+        "estimate": 0.7513227513227513,
+        "ci_95_wilson": [
+          0.685104319203168,
+          0.807528336559574
+        ],
+        "ci_width": 0.12242401735640596
+      }
+    },
+    "Violence": {
+      "harmful_prompts": 230,
+      "persistence": {
+        "numerator": 19,
+        "denominator": 230,
+        "estimate": 0.08260869565217391,
+        "ci_95_wilson": [
+          0.053521402143753276,
+          0.1254094813347726
+        ],
+        "ci_width": 0.0718880791910193
+      },
+      "reduction_to_safe": {
+        "numerator": 211,
+        "denominator": 230,
+        "estimate": 0.9173913043478261,
+        "ci_95_wilson": [
+          0.8745905186652275,
+          0.9464785978562468
+        ],
+        "ci_width": 0.07188807919101925
+      }
+    }
+  },
+  "sexual_persistence_pairwise_differences": [
+    {
+      "contrast": "Sexual - Hate",
+      "difference": 0.17572892040977145,
+      "ci_95_paired_percentile_bootstrap": [
+        0.10929837320307483,
+        0.24431274216438245
+      ],
+      "ci_98_33_bonferroni_paired_percentile_bootstrap": [
+        0.09531104109784651,
+        0.25952409101471874
+      ]
+    },
+    {
+      "contrast": "Sexual - Self-harm",
+      "difference": 0.13546970150743734,
+      "ci_95_paired_percentile_bootstrap": [
+        0.04778292998595743,
+        0.22108766419269543
+      ],
+      "ci_98_33_bonferroni_paired_percentile_bootstrap": [
+        0.027629357113600133,
+        0.23925400419829768
+      ]
+    },
+    {
+      "contrast": "Sexual - Violence",
+      "difference": 0.16606855302507476,
+      "ci_95_paired_percentile_bootstrap": [
+        0.09543312677209359,
+        0.23762693233215323
+      ],
+      "ci_98_33_bonferroni_paired_percentile_bootstrap": [
+        0.07999511908528044,
+        0.2533320586445784
+      ]
+    }
+  ],
+  "escalation_origin_split": {
+    "safe_prompt_origin": {
+      "among_escalations": {
+        "numerator": 32,
+        "denominator": 40,
+        "estimate": 0.8,
+        "ci_95_wilson": [
+          0.652426936536005,
+          0.895000102745623
+        ],
+        "ci_width": 0.242573166209618
+      },
+      "among_all_pairs": {
+        "numerator": 32,
+        "denominator": 1250,
+        "estimate": 0.0256,
+        "ci_95_wilson": [
+          0.018191351448737715,
+          0.035915536103459426
+        ],
+        "ci_width": 0.01772418465472171
+      },
+      "ci_95_percentile_bootstrap_among_escalations": [
+        0.675,
+        0.925
+      ]
+    },
+    "harmful_prompt_origin": {
+      "among_escalations": {
+        "numerator": 8,
+        "denominator": 40,
+        "estimate": 0.2,
+        "ci_95_wilson": [
+          0.10499989725437703,
+          0.347573063463995
+        ],
+        "ci_width": 0.242573166209618
+      },
+      "among_all_pairs": {
+        "numerator": 8,
+        "denominator": 1250,
+        "estimate": 0.0064,
+        "ci_95_wilson": [
+          0.0032464910099379973,
+          0.012578044605079946
+        ],
+        "ci_width": 0.009331553595141949
+      },
+      "ci_95_percentile_bootstrap_among_escalations": [
+        0.07499999999999996,
+        0.32499999999999996
+      ]
+    },
+    "exploratory_exact_binomial_test_equal_split": {
+      "null_safe_origin_proportion": 0.5,
+      "alternative": "two-sided",
+      "p_value": 0.0001821658297558315,
+      "interpretation_limit": "Tests imbalance relative to an equal 50/50 split; it does not validate mechanism labels."
+    }
+  },
+  "category_escalation": {
+    "Hate": {
+      "all_pairs": {
+        "numerator": 13,
+        "denominator": 1250,
+        "estimate": 0.0104,
+        "ci_95_wilson": [
+          0.0060878118374677985,
+          0.017712213764462473
+        ],
+        "ci_width": 0.011624401926994675
+      },
+      "prompts_with_room_to_escalate": {
+        "numerator": 13,
+        "denominator": 1154,
+        "estimate": 0.011265164644714038,
+        "ci_95_wilson": [
+          0.006595130740976715,
+          0.01917822414570077
+        ],
+        "ci_width": 0.012583093404724056
+      }
+    },
+    "Self-harm": {
+      "all_pairs": {
+        "numerator": 6,
+        "denominator": 1250,
+        "estimate": 0.0048,
+        "ci_95_wilson": [
+          0.002201684024989322,
+          0.010432655595263685
+        ],
+        "ci_width": 0.008230971570274363
+      },
+      "prompts_with_room_to_escalate": {
+        "numerator": 6,
+        "denominator": 1216,
+        "estimate": 0.004934210526315789,
+        "ci_95_wilson": [
+          0.002263296132007371,
+          0.010723193797601324
+        ],
+        "ci_width": 0.008459897665593952
+      }
+    },
+    "Sexual": {
+      "all_pairs": {
+        "numerator": 17,
+        "denominator": 1250,
+        "estimate": 0.0136,
+        "ci_95_wilson": [
+          0.008508334214631152,
+          0.021672083376828986
+        ],
+        "ci_width": 0.013163749162197834
+      },
+      "prompts_with_room_to_escalate": {
+        "numerator": 17,
+        "denominator": 1142,
+        "estimate": 0.0148861646234676,
+        "ci_95_wilson": [
+          0.009314720216418701,
+          0.023710318744591445
+        ],
+        "ci_width": 0.014395598528172744
+      }
+    },
+    "Violence": {
+      "all_pairs": {
+        "numerator": 16,
+        "denominator": 1250,
+        "estimate": 0.0128,
+        "ci_95_wilson": [
+          0.007894059235828154,
+          0.02069126035824952
+        ],
+        "ci_width": 0.012797201122421366
+      },
+      "prompts_with_room_to_escalate": {
+        "numerator": 16,
+        "denominator": 1144,
+        "estimate": 0.013986013986013986,
+        "ci_95_wilson": [
+          0.008627012918856609,
+          0.022598082276361432
+        ],
+        "ci_width": 0.013971069357504824
+      }
+    }
+  }
+}

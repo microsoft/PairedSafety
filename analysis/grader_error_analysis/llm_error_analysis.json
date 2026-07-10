@@ -1,0 +1,172 @@
+{
+  "method": "Two independent LLM coders; third-LLM adjudication of primary-label disagreements",
+  "coders": [
+    "gpt-5.2",
+    "gpt-4.1-nofilter"
+  ],
+  "adjudicator": "gpt-5.4",
+  "n_errors": 329,
+  "median_response_chars": 1004.0,
+  "agreement": {
+    "exact_primary_agreement_count": 267,
+    "exact_primary_agreement_rate": 0.8115501519756839,
+    "cohens_kappa": 0.686367969494757,
+    "adjudicated_count": 62
+  },
+  "error_type_counts": {
+    "false_positive": 233,
+    "false_negative": 76,
+    "under_severity": 13,
+    "over_severity": 7
+  },
+  "primary_pattern_counts": {
+    "Educational / explanatory framing": 155,
+    "Over-triggering lexical cues": 143,
+    "Boundary ambiguity": 17,
+    "Safe-refusal prior": 5,
+    "Other / unclear": 5,
+    "Category overlap / possible confusion": 4
+  },
+  "primary_pattern_by_error_type": {
+    "false_positive": {
+      "Over-triggering lexical cues": 143,
+      "Educational / explanatory framing": 89,
+      "Other / unclear": 1
+    },
+    "false_negative": {
+      "Educational / explanatory framing": 63,
+      "Safe-refusal prior": 5,
+      "Category overlap / possible confusion": 4,
+      "Other / unclear": 4
+    },
+    "under_severity": {
+      "Boundary ambiguity": 11,
+      "Educational / explanatory framing": 2
+    },
+    "over_severity": {
+      "Boundary ambiguity": 6,
+      "Educational / explanatory framing": 1
+    }
+  },
+  "response_length_chars_by_error_type": {
+    "false_positive": {
+      "n": 233,
+      "median": 1410,
+      "q1": 918.0,
+      "q3": 2301.0
+    },
+    "false_negative": {
+      "n": 76,
+      "median": 1137.5,
+      "q1": 673.0,
+      "q3": 2191.0
+    },
+    "under_severity": {
+      "n": 13,
+      "median": 2164,
+      "q1": 1363.0,
+      "q3": 4289.0
+    },
+    "over_severity": {
+      "n": 7,
+      "median": 1650,
+      "q1": 1083.5,
+      "q3": 5922.5
+    }
+  },
+  "response_length_chars_by_primary_pattern": {
+    "Educational / explanatory framing": {
+      "n": 155,
+      "median": 1453,
+      "q1": 895.5,
+      "q3": 2373.5
+    },
+    "Over-triggering lexical cues": {
+      "n": 143,
+      "median": 1347,
+      "q1": 860.0,
+      "q3": 2240.0
+    },
+    "Category overlap / possible confusion": {
+      "n": 4,
+      "median": 699.5,
+      "q1": 635.75,
+      "q3": 835.5
+    },
+    "Boundary ambiguity": {
+      "n": 17,
+      "median": 2164,
+      "q1": 1324.0,
+      "q3": 4666.0
+    },
+    "Safe-refusal prior": {
+      "n": 5,
+      "median": 762,
+      "q1": 568.0,
+      "q3": 824.0
+    },
+    "Other / unclear": {
+      "n": 5,
+      "median": 249,
+      "q1": 203.0,
+      "q3": 507.0
+    }
+  },
+  "per_category": {
+    "Hate": {
+      "n_errors": 68,
+      "false_negatives": 19,
+      "false_positives": 49,
+      "boundary_errors": 0,
+      "dominant_primary_pattern": "Over-triggering lexical cues",
+      "primary_pattern_counts": {
+        "Over-triggering lexical cues": 34,
+        "Educational / explanatory framing": 30,
+        "Safe-refusal prior": 3,
+        "Other / unclear": 1
+      }
+    },
+    "Sexual": {
+      "n_errors": 68,
+      "false_negatives": 34,
+      "false_positives": 23,
+      "boundary_errors": 11,
+      "dominant_primary_pattern": "Educational / explanatory framing",
+      "primary_pattern_counts": {
+        "Educational / explanatory framing": 45,
+        "Boundary ambiguity": 9,
+        "Over-triggering lexical cues": 7,
+        "Other / unclear": 4,
+        "Category overlap / possible confusion": 2,
+        "Safe-refusal prior": 1
+      }
+    },
+    "Violence": {
+      "n_errors": 137,
+      "false_negatives": 12,
+      "false_positives": 118,
+      "boundary_errors": 7,
+      "dominant_primary_pattern": "Over-triggering lexical cues",
+      "primary_pattern_counts": {
+        "Over-triggering lexical cues": 66,
+        "Educational / explanatory framing": 65,
+        "Boundary ambiguity": 6
+      }
+    },
+    "Self-harm": {
+      "n_errors": 56,
+      "false_negatives": 11,
+      "false_positives": 43,
+      "boundary_errors": 2,
+      "dominant_primary_pattern": "Over-triggering lexical cues",
+      "primary_pattern_counts": {
+        "Over-triggering lexical cues": 36,
+        "Educational / explanatory framing": 15,
+        "Category overlap / possible confusion": 2,
+        "Boundary ambiguity": 2,
+        "Safe-refusal prior": 1
+      }
+    }
+  },
+  "disclosure": "Interpretive patterns were assigned by LLMs and are descriptive; FP/FN/severity error types were computed mechanically from human and grader labels."
+}

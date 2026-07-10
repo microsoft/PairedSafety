@@ -1,0 +1,52 @@
+{
+  "grader": "response_gpt-5.jsonl",
+  "n_records": 1250,
+  "n_error_instances": 329,
+  "median_response_chars": 1004.0,
+  "error_type_counts": {
+    "false_positive": 233,
+    "false_negative": 76,
+    "under_severity": 13,
+    "over_severity": 7
+  },
+  "taxonomy_primary_counts": {
+    "Educational framing": 146,
+    "Over-triggering lexical cues": 117,
+    "Category overlap / confusion": 5,
+    "Boundary ambiguity": 20,
+    "Other / unclear": 18,
+    "Long-response dilution": 18,
+    "Safe-refusal prior": 5
+  },
+  "taxonomy_multilabel_counts": {
+    "Educational framing": 150,
+    "Over-triggering lexical cues": 233,
+    "Category overlap / confusion": 22,
+    "Boundary ambiguity": 20,
+    "Long-response dilution": 42,
+    "Other / unclear": 18,
+    "Safe-refusal prior": 5
+  },
+  "per_category": {
+    "Hate": {
+      "false_negatives": 19,
+      "false_positives": 49,
+      "dominant_primary": "Educational framing"
+    },
+    "Sexual": {
+      "false_negatives": 34,
+      "false_positives": 23,
+      "dominant_primary": "Educational framing"
+    },
+    "Violence": {
+      "false_negatives": 12,
+      "false_positives": 118,
+      "dominant_primary": "Educational framing"
+    },
+    "Self-harm": {
+      "false_negatives": 11,
+      "false_positives": 43,
+      "dominant_primary": "Over-triggering lexical cues"
+    }
+  }
+}

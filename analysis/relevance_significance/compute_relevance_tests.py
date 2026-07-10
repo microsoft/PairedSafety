@@ -416,7 +416,8 @@ def main():
     rows = load_rows()
     result = {
         "n_total": len(rows),
-        "data_path": DATA_PATH,
+        "data_source": "author-supplied restricted internal corpus",
+        "input_filename": os.path.basename(DATA_PATH),
         "n_perm": N_PERM,
         "reproduction": reproduce_tables(rows),
         "test1_severity": analysis_severity(rows),

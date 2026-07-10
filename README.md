@@ -9,7 +9,7 @@ severity levels (0 Safe, 1 Low, 2 Medium, 3 High).
 The human-labeled internal corpus (1,250 pairs) cannot be released because its
 hand-authored prompts contain explicit harm-category exemplars. This repository
 instead provides everything needed to (a) reproduce the grader setup and
-(b) reproduce a **public-data replication** of the framework on open benchmarks
+(b) run a **public-data supporting evaluation** of the framework on open benchmarks
 and open/closed models.
 
 ## Repository layout
@@ -17,7 +17,7 @@ and open/closed models.
 ```
 docs/prompts/                     Grader prompt artifacts (rubric + templates)
 analysis/
-  public_mini_eval/               Public-data replication (public prompts + open/closed models)
+  public_mini_eval/               Public-data evaluation (public prompts + open/closed models)
     01_build_prompt_set.py        Build the stratified public prompt set
     02_generate_responses.py      Generate responses (your own endpoints)
     03_grade.py                   Grade prompts + responses with the rubric grader
@@ -46,13 +46,16 @@ To grade, send the system prompt plus the appropriate user prompt, with **only**
 the target text (prompt for prompt-grading, response for response-grading). Any
 LLM client works; no API client is bundled.
 
-## Public replication (`analysis/public_mini_eval/`)
+## Public supporting evaluation (`analysis/public_mini_eval/`)
 
-A public, at-scale replication: the full XSTest benchmark (450 prompts) plus a
+A public, at-scale supporting evaluation: the full XSTest benchmark (450 prompts) plus a
 stratified Do-Not-Answer sample (150) = **600 public prompts** answered by six
 models (Llama-3.3-70B, gpt-oss-120b, DeepSeek-V3.1, gpt-4.1, gpt-5, grok-4),
 yielding ~3,600 analyzed prompt→response pairs. Both prompts and responses are
-labeled by the rubric grader on the same 0–3, four-category scale.
+labeled by the rubric grader on the same 0–3, four-category scale. Because this
+uses 600 unique prompts repeatedly across models and LLM-grader rather than
+human labels, its findings are directional and are not presented as a rigorous
+replication of the internal human-labeled rates.
 
 ### Quick reproduction (no model calls)
 
@@ -84,14 +87,21 @@ python 03_grade.py               # -> data/graded/
 python 04_analyze.py             # -> results/metrics.json, results/escalation_cases.json
 ```
 
+Cross-model inference uses prompt-matched exact McNemar tests with Holm
+correction. Pooled uncertainty resamples unique prompts together with all
+available model outputs, preserving the repeated-prompt dependence.
+
 ## Additional analyses
 
 - `analysis/statistical_uncertainty/compute_ci.py` — Wilson 95% CIs and
-  bootstrap intervals for the transition and category findings.
+  bootstrap intervals for the transition and category findings; see
+  `ci_results.json` and `results.md`.
 - `analysis/relevance_significance/compute_relevance_tests.py` — permutation
-  chi-square / Fisher tests with effect sizes for the relevance analysis.
+  chi-square / Fisher tests with effect sizes for the relevance analysis; see
+  `relevance_test_results.json` and `results.md`.
 - `analysis/grader_error_analysis/` — mechanical enumeration and LLM-assisted
-  coding of response-side grader errors.
+  coding of response-side grader errors; see `error_taxonomy.md` and
+  `llm_error_analysis.json`.
 
 These three operate on the internal labeled corpus (not released); point them at
 your own labeled data via the `PAIREDSAFETY_LABELS` environment variable.
@@ -99,7 +109,7 @@ your own labeled data via the `PAIREDSAFETY_LABELS` environment variable.
 ## Data
 
 The `public_mini_eval/data/` and `results/` directories include the public
-replication artifacts:
+evaluation artifacts:
 
 - `data/prompts.jsonl` — the sampled public prompt set with public labels.
 - `data/responses/*.jsonl` — raw model responses for each generator.
@@ -111,7 +121,7 @@ replication artifacts:
 **Content warning:** `data/responses/*.jsonl` contains freshly generated model
 outputs to public harmful prompts, including unsafe text (191 severity-2 and 21
 severity-3 responses under the released grader labels). These files are included
-to make the public replication auditable end-to-end; use them only for research
+to make the public evaluation auditable end-to-end; use them only for research
 and safety evaluation.
 
 ## Citation

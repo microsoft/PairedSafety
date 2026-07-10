@@ -1,8 +1,8 @@
 """Build a stratified, publicly shareable prompt set from XSTest + Do-Not-Answer.
 
 Scaled version: the FULL XSTest benchmark (450) plus a stratified Do-Not-Answer
-sample (150) = 600 prompts. With six models this yields ~3,600 analyzed pairs,
-larger than the internal corpus, while remaining fully public and reproducible.
+sample (150) = 600 unique prompts. With six models this yields approximately
+3,600 model-prompt pairs while retaining the prompt-level dependence.
 
 Design goals (documented for the rebuttal):
 - Include BOTH benign and harmful prompts so that reduction, preservation, and
