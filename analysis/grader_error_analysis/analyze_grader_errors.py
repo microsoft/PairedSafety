@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Response-side LLM grader error analysis (EMNLP rebuttal, R2).
+"""Response-side LLM grader error analysis for the PairedSafety paper.
 
 Loads the response-target grader predictions used in the paper, joins them to
 the labelled paired prompt-response dataset, enumerates every grader error, and
@@ -8,7 +8,7 @@ classifies each error into an interpretable taxonomy.
 Outputs (written next to this script):
   - error_analysis.json      : machine-readable counts + per-error records.
   - example_candidates.json  : sanitizable example pool (rationale + snippets).
-  - error_taxonomy.md        : the rebuttal-ready markdown section.
+    - error_taxonomy.md        : the publication-facing analysis summary.
 
 Definitions (follow the paper, Section 3):
   - Per-category severity s^c in {0,1,2,3} for c in {Hate (H), Sexual (S),
@@ -35,9 +35,9 @@ from collections import Counter, defaultdict
 # --- Paths -------------------------------------------------------------------
 # The labelled paired corpus is not publicly released (compliance). Point these
 # at your own copy via environment variables to reproduce the analysis.
-PRED_DIR = os.environ.get("PAIREDSAFETY_PRED_DIR", "data/grader_preds")
+PRED_DIR = os.environ.get("PAIREDSAFETY_PRED_DIR", "data/grader_predictions")
 SRC_PATH = os.environ.get("PAIREDSAFETY_LABELS", "data/paired_response_labels.jsonl")
-GRADER = "response_gpt-5.jsonl"  # primary paper grader, response target
+GRADER = "response_grader_predictions.jsonl"
 
 CATS = ["H", "S", "V", "SH"]
 CATNAME = {"H": "Hate", "S": "Sexual", "V": "Violence", "SH": "Self-harm"}

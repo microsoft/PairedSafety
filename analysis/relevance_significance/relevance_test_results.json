@@ -1,7 +1,6 @@
 {
   "n_total": 1250,
   "data_source": "author-supplied restricted internal corpus",
-  "input_filename": "combined_response_label_orange.jsonl",
   "n_perm": 50000,
   "reproduction": {
     "table1": {

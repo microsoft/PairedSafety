@@ -1,9 +1,9 @@
 # Statistical Uncertainty for Escalation and Category Findings
 
-*Directly addresses Reviewer 2's concern that conclusions involving the 40
-escalation cases require uncertainty estimates. This analysis strengthens the
-paper's statistical reporting; Reviewer 1's separate request about relevance is
-addressed by the relevance-significance analysis.*
+This analysis quantifies uncertainty for conclusions involving the 40
+escalation cases and strengthens the paper's statistical reporting. Statistical
+tests for relevance are provided separately in the relevance-significance
+analysis.
 
 **Study scope.** This is an observational analysis of 1,250 independently
 labelled prompt–response pairs. The goal is to report what is observed in this
@@ -115,9 +115,9 @@ The intervals overlap substantially. Accordingly, these per-category escalation
 counts describe where escalations appeared; they do not support ranking
 categories by escalation prevalence.
 
-## Rebuttal-ready response to Reviewer 2
+## Paper-ready summary
 
-> We agree that 40 escalation cases do not support highly precise estimates of
+> Forty escalation cases do not support highly precise estimates of
 > escalation subtypes. We have therefore added numerator/denominator counts and
 > Wilson 95% confidence intervals for every aggregate and category-level rate,
 > together with interaction-level bootstrap intervals for category contrasts.
@@ -134,9 +134,9 @@ categories by escalation prevalence.
 > this as an interesting descriptive audit finding, explicitly report its broad
 > uncertainty, and avoid presenting the mechanism proportions or overlapping
 > per-category escalation counts as precise population estimates. Our aim is to
-> share a resource-intensive, human-labelled, multi-category and multi-severity
+> present a resource-intensive, human-labelled, multi-category and multi-severity
 > observation study with transparent uncertainty, while the separate public-data
-> replication tests whether the same analysis is operational beyond this closed
+> evaluation tests whether the same analysis is operational beyond this closed
 > corpus.
 
 ## Interpretation for the revised paper

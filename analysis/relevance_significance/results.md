@@ -1,7 +1,5 @@
 # Statistical Tests for Relevance Patterns
 
-*Rebuttal Experiment 3 — significance tests for the relevance analysis (addresses R1 and R2).*
-
 All numbers below are computed from the labelled paired prompt–response dataset
 (N = 1,250) by [compute_relevance_tests.py](compute_relevance_tests.py) and are
 saved in [relevance_test_results.json](relevance_test_results.json). The script
@@ -67,7 +65,7 @@ primary; the asymptotic p-value is shown in parentheses for reference.
   adequate (severity association; Violence) and appropriately **qualify** the
   sparse-cell, category-level comparisons as exploratory.
 
-## Boundary-case interpretation (R2)
+## Boundary-case interpretation
 
 The tests are not just "significant vs. not" — read together they show that the
 relevance shortfall is a **localized boundary phenomenon**, invisible in the
@@ -112,10 +110,9 @@ size). The Sexual reduction is directional only ($p=0.064$), and the Hate (37) a
 Self-harm (18) harmful cells are too small for confirmatory category claims; we
 mark these as exploratory and report effect sizes alongside every p-value.
 
-## Rebuttal paragraph (R1 & R2)
+## Paper-ready summary
 
-> We thank the reviewers for asking for stronger statistical support for the
-> relevance analysis. We added significance tests for the association between
+> We added significance tests for the association between
 > response severity and relevance, and for category-level relevance differences.
 > Relevance is significantly associated with response severity (Monte-Carlo
 > permutation $\chi^2$, $p=3.0\times10^{-4}$; asymptotic $p=4.3\times10^{-9}$;
@@ -139,7 +136,7 @@ mark these as exploratory and report effect sizes alongside every p-value.
 Run:
 
 ```bash
-cd PairedSafety/Rebuttal/relevance_significance
+cd PairedSafety/analysis/relevance_significance
 python3 compute_relevance_tests.py
 ```
 

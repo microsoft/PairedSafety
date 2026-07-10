@@ -1,8 +1,8 @@
-# Response-Side Grader Error Analysis (Rebuttal R2)
+# Response-Side Grader Error Analysis
 
 Targeted error analysis explaining **why response-side moderation is harder than
-prompt-side moderation**, addressing R2's request for an LLM-grader error
-analysis (and R1/R3 concerns on empirical support and grader clarity).
+prompt-side moderation** and documenting the grader's category-specific and
+severity-boundary failure modes.
 
 ## Contents
 
@@ -10,17 +10,20 @@ analysis (and R1/R3 concerns on empirical support and grader clarity).
 |---|---|
 | `analyze_grader_errors.py` | Joins the paper's response-target grader predictions to the labelled paired dataset and mechanically enumerates every FP, FN, and nonzero severity error. Its original regex taxonomy is retained only as a baseline and is not used for the revised claims. |
 | `llm_code_errors.py` | Runs two independent no-filter LLM coders over all errors, reports reliability, and uses a third LLM to adjudicate primary-pattern disagreements. |
-| `error_taxonomy.md` | **Deliverable.** The rebuttal-ready "Error Analysis of Response-Side Grader Failures" section: taxonomy table, per-category table, sanitized examples, and the R2 rebuttal paragraph. |
+| `error_taxonomy.md` | Human-readable analysis: taxonomy table, per-category table, sanitized examples, interpretation, and paper-ready summary. |
 | `error_analysis.json` | Machine-readable counts (generated). |
 | `llm_error_analysis.json` | Public aggregate multi-LLM coding results, agreement, cross-tabs, and length summaries. |
 | `example_candidates.json` | Sanitizable example pool with grader rationales (generated). |
 
 ## Data sources (internal, not redistributed)
 
-- Predictions: `omni/notebooks/dsats/emnlp2026/grader/preds_public_azure_compact/response_gpt-5.jsonl`
-  (1,250 records; per-category human `true_label` + grader `prediction`).
-- Labelled paired dataset: `omni/.../2026April_response/combined_response_label_orange.jsonl`
-  (joined on `metadata.hit_id`; the file that reproduces the paper's numbers).
+- Response-target predictions from the paper's GPT-5 few-shot grader
+  (1,250 records; per-category human label and grader prediction).
+- The restricted human-labelled paired dataset used for the paper's reported
+  results. Records are joined through an internal record identifier.
+
+The underlying files contain restricted text and are not redistributed. Their
+internal storage locations and filenames are intentionally omitted.
 
 The grader is the GPT-5 few-shot grader scored on **response** text only, using
 the public Azure AI Content Safety rubric (Hate/Sexual/Violence/Self-harm,

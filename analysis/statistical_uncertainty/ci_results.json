@@ -1,7 +1,6 @@
 {
   "metadata": {
     "data_source": "author-supplied restricted internal corpus",
-    "input_filename": "combined_response_label_orange.jsonl",
     "n_pairs": 1250,
     "confidence_level": 0.95,
     "wilson_z": 1.959963984540054,

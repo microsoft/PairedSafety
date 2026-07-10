@@ -3,8 +3,9 @@
 *Grader:* GPT-5 few-shot grader, **response target**, using the public Azure AI
 Content Safety rubric (Hate `H`, Sexual `S`, Violence `V`, Self-harm `SH`; merged
 severity 0–3). *Data:* the 1,250 human-labelled paired prompt–response records
-used in the paper (5,000 record-category decisions). *Predictions:*
-`preds_public_azure_compact/response_gpt-5.jsonl`.
+used in the paper (5,000 record-category decisions). *Predictions:* the
+restricted response-target predictions used in the paper; internal storage
+details are intentionally omitted.
 
 ## Scope and method
 
@@ -166,9 +167,9 @@ These results support the narrow claim that response grading presents a
 different contextual calibration problem from prompt grading. They do not by
 themselves establish which moderation architecture should be deployed.
 
-## Rebuttal paragraph (R2; also clarifies the grader-related parts of R1/R3)
+## Paper-ready summary
 
-> We thank the reviewer for requesting a grader error analysis. We analyzed all
+> We analyzed all
 > 329 response-side record-category mismatches against the human labels,
 > separating 233 false positives, 76 false negatives, and 20 nonzero severity
 > errors. To avoid relying on keyword heuristics, two independent LLMs coded the
@@ -188,17 +189,17 @@ themselves establish which moderation architecture should be deployed.
 > moderation discussion to present this as a diagnostic implication of the
 > paired analysis, not as validation of a particular deployed filter design.
 
-## What this does and does not answer
+## Scope and interpretation
 
-- **R2:** directly answered through exhaustive, category-specific error analysis,
-  boundary analysis, sanitized examples, and a disclosed coding protocol.
-- **R1:** strengthens the empirical basis for the statement that response-side
-  detection has distinct failure modes. It does not claim to validate filter
-  placement; the revised paper should narrow that implication and reserve
-  architecture optimization for follow-up work.
-- **R3:** clarifies class imbalance, category variation, boundary ambiguity,
-  framing failures, few-shot limitations, and the fact that LLM coding is itself
-  an imperfect qualitative instrument.
+- The exhaustive, category-specific analysis covers false positives, false
+   negatives, nonzero severity-boundary errors, and sanitized examples under a
+   disclosed coding protocol.
+- It strengthens the empirical basis for the statement that response-side
+   detection has distinct failure modes, but does not validate where a deployed
+   filter should be placed; architecture optimization remains follow-up work.
+- The analysis documents class imbalance, category variation, boundary
+   ambiguity, framing failures, few-shot limitations, and the limitations of LLM
+   coding as a qualitative instrument.
 
 ## Reproduce
 

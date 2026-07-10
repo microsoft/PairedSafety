@@ -1,5 +1,5 @@
 {
-  "grader": "response_gpt-5.jsonl",
+  "grader": "GPT-5 few-shot response-target grader",
   "n_records": 1250,
   "n_error_instances": 329,
   "median_response_chars": 1004.0,

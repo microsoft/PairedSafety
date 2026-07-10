@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Significance tests for the relevance analysis (Rebuttal Experiment 3).
+"""Significance tests for the paper's relevance analysis.
 
 Reproduces the paper's relevance tables (Tables 1, 5, 6, 7) from the labelled
 paired prompt-response dataset and adds rigorous significance tests plus effect
@@ -417,7 +417,6 @@ def main():
     result = {
         "n_total": len(rows),
         "data_source": "author-supplied restricted internal corpus",
-        "input_filename": os.path.basename(DATA_PATH),
         "n_perm": N_PERM,
         "reproduction": reproduce_tables(rows),
         "test1_severity": analysis_severity(rows),

@@ -8,7 +8,7 @@ rationales are written only to a gitignored private artifact; the public JSON
 contains aggregate counts and agreement statistics.
 
 This is an LLM-assisted qualitative analysis, not human annotation. It should
-be described that way in the paper and rebuttal.
+be described that way in the paper and associated documentation.
 """
 from __future__ import annotations
 

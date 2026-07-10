@@ -4,7 +4,7 @@ Scaled version: the FULL XSTest benchmark (450) plus a stratified Do-Not-Answer
 sample (150) = 600 unique prompts. With six models this yields approximately
 3,600 model-prompt pairs while retaining the prompt-level dependence.
 
-Design goals (documented for the rebuttal):
+Design goals:
 - Include BOTH benign and harmful prompts so that reduction, preservation, and
   escalation (incl. drift from safe prompts) are all observable.
 - Stratify by the datasets' own labels/types; do NOT cherry-pick only extreme

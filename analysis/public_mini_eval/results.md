@@ -158,11 +158,11 @@ noisier than the paper's human-labeled corpus. What the mini-eval establishes is
 *operationality, conditional cross-model characterization, and directional
 evidence*, not replication of the human-labeled findings.
 
-### Rebuttal-ready paragraph
+### Paper-ready summary
 
-We thank the reviewers for raising reproducibility, data-availability, and
-generalizability concerns. To show that the proposed paired-transition framework
-can operate beyond our internal corpus, we added a public-data supporting evaluation (code and
+To assess reproducibility, data availability, and directional generalization,
+we tested whether the proposed paired-transition framework can operate beyond
+our internal corpus through a public-data supporting evaluation (code and
 artifacts released) over the **full XSTest benchmark plus a stratified
 Do-Not-Answer sample (600 prompts)** and six models spanning three open-weight
 (Llama-3.3-70B, gpt-oss-120b, DeepSeek-V3.1) and three closed (gpt-4.1, gpt-5,

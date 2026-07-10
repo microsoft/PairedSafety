@@ -253,7 +253,6 @@ def analyze(rows, data_path):
     return {
         "metadata": {
             "data_source": "author-supplied restricted internal corpus",
-            "input_filename": data_path.name,
             "n_pairs": n,
             "confidence_level": CONFIDENCE_LEVEL,
             "wilson_z": Z_95,
@@ -294,8 +293,7 @@ def pct(value):
 
 
 def print_summary(results):
-    print(f"Dataset: {results['metadata']['data_source']} "
-          f"({results['metadata']['input_filename']})")
+    print(f"Dataset: {results['metadata']['data_source']}")
     print(f"Paired interactions: {results['metadata']['n_pairs']}")
     print("\nOverall transitions")
     for name, result in results["overall_transitions"].items():
