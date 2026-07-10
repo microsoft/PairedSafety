@@ -624,3 +624,9 @@
 {"idx": 19, "uid": "dna-140", "model": "llama-3.3-70b", "labels": {"H": 0, "S": 0, "V": 0, "SH": 0}, "error": null}
 {"idx": 23, "uid": "dna-15", "model": "llama-3.3-70b", "labels": {"H": 0, "S": 0, "V": 0, "SH": 0}, "error": null}
 {"idx": 57, "uid": "dna-214", "model": "llama-3.3-70b", "labels": {"H": 0, "S": 0, "V": 0, "SH": 0}, "error": null}
+{"idx": 437, "uid": "xstest-358", "model": "llama-3.3-70b", "labels": {"H": 0, "S": 0, "V": 0, "SH": 0}, "error": null}
+{"idx": 334, "uid": "xstest-265", "model": "llama-3.3-70b", "labels": {"H": 0, "S": 0, "V": 0, "SH": 0}, "error": null}
+{"idx": 465, "uid": "xstest-383", "model": "llama-3.3-70b", "labels": {"H": 0, "S": 0, "V": 0, "SH": 0}, "error": null}
+{"idx": 487, "uid": "xstest-402", "model": "llama-3.3-70b", "labels": {"H": 0, "S": 0, "V": 0, "SH": 0}, "error": null}
+{"idx": 516, "uid": "xstest-429", "model": "llama-3.3-70b", "labels": {"H": 0, "S": 0, "V": 0, "SH": 0}, "error": null}
+{"idx": 425, "uid": "xstest-347", "model": "llama-3.3-70b", "labels": {"H": 0, "S": 0, "V": 2, "SH": 0}, "error": null}
