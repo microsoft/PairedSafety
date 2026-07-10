@@ -24,7 +24,7 @@ analysis/
     04_analyze.py                 Compute all transition / category / model metrics
     common.py                     Endpoints, model registry, grader (env-configurable)
     requirements.txt
-    data/                         Public prompts + grader labels (see "Data")
+    data/                         Public prompts, raw responses, grader labels (see "Data")
     results/                      Aggregate metrics (metrics.json, escalation_cases.json)
   statistical_uncertainty/        Wilson CIs + bootstrap for transition/category rates
   relevance_significance/         Permutation / Fisher tests with effect sizes
@@ -79,7 +79,7 @@ export PAIREDSAFETY_AOAI_ENDPOINT="https://<your-azure-openai-resource>.openai.a
 #   data/do_not_answer.jsonl  (Do-Not-Answer; Wang et al., 2024; Apache-2.0)
 
 python 01_build_prompt_set.py    # -> data/prompts.jsonl
-python 02_generate_responses.py  # -> data/responses/ (kept local; see "Data")
+python 02_generate_responses.py  # -> data/responses/
 python 03_grade.py               # -> data/graded/
 python 04_analyze.py             # -> results/metrics.json, results/escalation_cases.json
 ```
@@ -98,21 +98,21 @@ your own labeled data via the `PAIREDSAFETY_LABELS` environment variable.
 
 ## Data
 
-The `public_mini_eval/data/` and `results/` directories publish only
-non-sensitive artifacts:
+The `public_mini_eval/data/` and `results/` directories include the public
+replication artifacts:
 
 - `data/prompts.jsonl` — the sampled public prompt set with public labels.
+- `data/responses/*.jsonl` — raw model responses for each generator.
 - `data/graded/*.jsonl` — grader **severity labels only** (`{H,S,V,SH}` + ids);
   no response text.
 - `results/metrics.json`, `results/escalation_cases.json` — aggregate metrics
   and escalation records (severity dictionaries only).
 
-**Raw model responses are intentionally not published.** They are freshly
-generated outputs to public harmful prompts and include unsafe text (191
-severity-2 and 21 severity-3 responses). Because every reported metric is
-reproducible from the grader labels above, the raw generations are withheld to
-avoid republishing harmful content. Regenerate them locally with
-`02_generate_responses.py` if you need the text.
+**Content warning:** `data/responses/*.jsonl` contains freshly generated model
+outputs to public harmful prompts, including unsafe text (191 severity-2 and 21
+severity-3 responses under the released grader labels). These files are included
+to make the public replication auditable end-to-end; use them only for research
+and safety evaluation.
 
 ## Citation
 

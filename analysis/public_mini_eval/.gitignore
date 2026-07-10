@@ -1,10 +1,3 @@
-# Raw model generations to (public) harmful prompts — NOT published.
-# These contain unsafe text (191 severity-2 and 21 severity-3 responses). All
-# results are fully reproducible from the grader labels in data/graded/ without
-# republishing raw harmful content, so the raw responses are intentionally kept
-# local only.
-data/responses/
-
 # Logs
 results/*.log
 
@@ -17,5 +10,6 @@ __pycache__/
 #   data/prompts.jsonl        (sampled public prompts + public labels)
 #   data/xstest_prompts.csv   (public benchmark input)
 #   data/do_not_answer.jsonl  (public benchmark input)
+#   data/responses/*.jsonl    (raw model responses; may contain unsafe text)
 #   data/graded/*.jsonl       (grader severity labels only, no text)
 #   results/metrics.json, results/escalation_cases.json (aggregate, no text)
