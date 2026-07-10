@@ -115,31 +115,25 @@ The intervals overlap substantially. Accordingly, these per-category escalation
 counts describe where escalations appeared; they do not support ranking
 categories by escalation prevalence.
 
-## Paper-ready summary
+## Summary
 
-> Forty escalation cases do not support highly precise estimates of
-> escalation subtypes. We have therefore added numerator/denominator counts and
-> Wilson 95% confidence intervals for every aggregate and category-level rate,
-> together with interaction-level bootstrap intervals for category contrasts.
-> The overall escalation estimate uses all 1,250 labelled pairs: 40/1,250, or
-> 3.20% (95% CI [2.36%, 4.33%]). This supports our corpus-level observation of a
-> small escalation tail while making clear that 3.20% is not a universal rate.
-> The category-persistence analysis has separate harmful-prompt denominators
-> (106–329 rather than 40). Sexual persistence is 47/189 (24.87%, Wilson 95% CI
-> [19.25%, 31.49%]) and exceeds Hate, Self-harm, and Violence by 13.55–17.57
-> percentage points; paired interaction-level bootstrap intervals remain above
-> zero after simultaneous-coverage adjustment. In contrast, the escalation
-> origin/mechanism analysis is conditional on only 40 cases: 32/40 originated
-> from safe prompts (80.00%, Wilson 95% CI [65.24%, 89.50%]). We therefore retain
-> this as an interesting descriptive audit finding, explicitly report its broad
-> uncertainty, and avoid presenting the mechanism proportions or overlapping
-> per-category escalation counts as precise population estimates. Our aim is to
-> present a resource-intensive, human-labelled, multi-category and multi-severity
-> observation study with transparent uncertainty, while the separate public-data
-> evaluation tests whether the same analysis is operational beyond this closed
-> corpus.
+Forty escalation cases do not support highly precise estimates of escalation
+subtypes. Numerator/denominator counts and Wilson 95% confidence intervals are
+therefore reported for every aggregate and category-level rate, together with
+interaction-level bootstrap intervals for category contrasts. The overall
+escalation estimate uses all 1,250 labelled pairs: 40/1,250, or 3.20% (95% CI
+[2.36%, 4.33%]). This supports the corpus-level observation of a small
+escalation tail but not a universal 3.20% rate. The category-persistence
+analysis has separate harmful-prompt denominators (106–329 rather than 40).
+Sexual persistence is 47/189 (24.87%, Wilson 95% CI [19.25%, 31.49%]) and
+exceeds Hate, Self-harm, and Violence by 13.55–17.57 percentage points; paired
+interaction-level bootstrap intervals remain above zero after
+simultaneous-coverage adjustment. In contrast, the escalation-origin analysis
+is conditional on only 40 cases: 32/40 originated from safe prompts (80.00%,
+Wilson 95% CI [65.24%, 89.50%]). This is a descriptive audit finding with broad
+uncertainty rather than a precise population estimate.
 
-## Interpretation for the revised paper
+## Interpretation
 
 The statistical results support three differently scoped statements:
 

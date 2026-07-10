@@ -110,26 +110,23 @@ size). The Sexual reduction is directional only ($p=0.064$), and the Hate (37) a
 Self-harm (18) harmful cells are too small for confirmatory category claims; we
 mark these as exploratory and report effect sizes alongside every p-value.
 
-## Paper-ready summary
+## Summary
 
-> We added significance tests for the association between
-> response severity and relevance, and for category-level relevance differences.
-> Relevance is significantly associated with response severity (Monte-Carlo
-> permutation $\chi^2$, $p=3.0\times10^{-4}$; asymptotic $p=4.3\times10^{-9}$;
-> Cramér's $V=0.142$), with the effect concentrated in the medium-severity band
-> (severity-2 Rel 3 rate 64.1% vs. 91.2% elsewhere, Fisher $p=5.7\times10^{-6}$).
-> Among harmful responses, relevance differs significantly by category
-> (permutation $\chi^2$, $p=0.014$; $V=0.222$), and harmful Violence responses
-> are markedly less relevant than harmful Hate responses ($p=2.3\times10^{-4}$)
-> and than safe Violence responses ($p=7.0\times10^{-4}$); the Sexual reduction
-> is directionally consistent but does not reach significance ($p=0.064$). These
-> tests confirm that relevance is not uniformly distributed across severity and
-> category conditions, supporting our descriptive analysis. Because several
-> category cells have small denominators (Hate 37, Violence 33, Self-harm 18
-> harmful responses), we now explicitly mark those comparisons as exploratory
-> and report effect sizes alongside every p-value. We interpret the results as
-> statistical association only and do not claim that severity or category
-> causes lower relevance.
+Significance tests quantify the association between response severity and
+relevance and the category-level relevance differences. Relevance is
+significantly associated with response severity (Monte-Carlo permutation
+$\chi^2$, $p=3.0\times10^{-4}$; asymptotic $p=4.3\times10^{-9}$; Cramér's
+$V=0.142$), with the effect concentrated in the medium-severity band
+(severity-2 Rel 3 rate 64.1% vs. 91.2% elsewhere, Fisher
+$p=5.7\times10^{-6}$). Among harmful responses, relevance differs significantly
+by category (permutation $\chi^2$, $p=0.014$; $V=0.222$), and harmful Violence
+responses are markedly less relevant than harmful Hate responses
+($p=2.3\times10^{-4}$) and safe Violence responses
+($p=7.0\times10^{-4}$); the Sexual reduction is directionally consistent but
+does not reach significance ($p=0.064$). Category comparisons with small
+denominators (Hate 37, Violence 33, Self-harm 18 harmful responses) are
+exploratory and include effect sizes. These results establish statistical
+association only, not causation by severity or category.
 
 ## Reproduction
 

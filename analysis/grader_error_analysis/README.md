@@ -10,7 +10,7 @@ severity-boundary failure modes.
 |---|---|
 | `analyze_grader_errors.py` | Joins the paper's response-target grader predictions to the labelled paired dataset and mechanically enumerates every FP, FN, and nonzero severity error. Its original regex taxonomy is retained only as a baseline and is not used for the revised claims. |
 | `llm_code_errors.py` | Runs two independent no-filter LLM coders over all errors, reports reliability, and uses a third LLM to adjudicate primary-pattern disagreements. |
-| `error_taxonomy.md` | Human-readable analysis: taxonomy table, per-category table, sanitized examples, interpretation, and paper-ready summary. |
+| `error_taxonomy.md` | Human-readable analysis: taxonomy table, per-category table, sanitized examples, interpretation, and summary. |
 | `error_analysis.json` | Machine-readable counts (generated). |
 | `llm_error_analysis.json` | Public aggregate multi-LLM coding results, agreement, cross-tabs, and length summaries. |
 | `example_candidates.json` | Sanitizable example pool with grader rationales (generated). |
@@ -22,8 +22,7 @@ severity-boundary failure modes.
 - The restricted human-labelled paired dataset used for the paper's reported
   results. Records are joined through an internal record identifier.
 
-The underlying files contain restricted text and are not redistributed. Their
-internal storage locations and filenames are intentionally omitted.
+The underlying files contain restricted text and are not redistributed.
 
 The grader is the GPT-5 few-shot grader scored on **response** text only, using
 the public Azure AI Content Safety rubric (Hate/Sexual/Violence/Self-harm,

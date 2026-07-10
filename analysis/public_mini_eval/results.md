@@ -158,7 +158,7 @@ noisier than the paper's human-labeled corpus. What the mini-eval establishes is
 *operationality, conditional cross-model characterization, and directional
 evidence*, not replication of the human-labeled findings.
 
-### Paper-ready summary
+### Summary
 
 To assess reproducibility, data availability, and directional generalization,
 we tested whether the proposed paired-transition framework can operate beyond

@@ -4,8 +4,7 @@
 Content Safety rubric (Hate `H`, Sexual `S`, Violence `V`, Self-harm `SH`; merged
 severity 0–3). *Data:* the 1,250 human-labelled paired prompt–response records
 used in the paper (5,000 record-category decisions). *Predictions:* the
-restricted response-target predictions used in the paper; internal storage
-details are intentionally omitted.
+restricted response-target predictions used in the paper.
 
 ## Scope and method
 
@@ -67,8 +66,8 @@ Percentages are over all 329 response-side errors.
 The zero primary count for long-response dilution is informative. Although
 responses are longer than prompts and some misses occur in long responses, the
 full-context coders usually identify educational/explanatory framing—not length
-alone—as the more specific primary pattern. The revised analysis therefore does
-not retain the earlier claim that dilution is a dominant independent mechanism.
+alone—as the more specific primary pattern. The results do not support dilution
+as a dominant independent mechanism.
 
 ## Table 2: Error directions by category
 
@@ -167,27 +166,23 @@ These results support the narrow claim that response grading presents a
 different contextual calibration problem from prompt grading. They do not by
 themselves establish which moderation architecture should be deployed.
 
-## Paper-ready summary
+## Summary
 
-> We analyzed all
-> 329 response-side record-category mismatches against the human labels,
-> separating 233 false positives, 76 false negatives, and 20 nonzero severity
-> errors. To avoid relying on keyword heuristics, two independent LLMs coded the
-> full context of every error under a fixed taxonomy (81.2% exact agreement;
-> Cohen's κ = 0.686), and a third LLM adjudicated 62 disagreements; we explicitly
-> describe this as LLM-assisted qualitative coding rather than human annotation.
-> The dominant primary patterns are educational/explanatory framing (155/329,
-> 47.1%) and lexical over-triggering (143/329, 43.5%). In particular, 63/76
-> false negatives involve framing, whereas 143/233 false positives are lexical
-> over-triggers. Violence contributes the most false positives (118), while
-> Sexual contributes the most false negatives (34) and nonzero boundary errors
-> (11). We also clarify the metric effect of class imbalance: only 146/5,000
-> response category-labels are harmful, so 233 false alarms exceed the number of
-> true harmful labels, yielding harmful-class precision 0.231 and recall 0.479
-> despite high accuracy. This strengthens our narrower conclusion that response
-> grading requires response-specific contextual calibration. We have revised the
-> moderation discussion to present this as a diagnostic implication of the
-> paired analysis, not as validation of a particular deployed filter design.
+The analysis covers all 329 response-side record-category mismatches against
+the human labels: 233 false positives, 76 false negatives, and 20 nonzero
+severity errors. Two independent LLMs coded the full context of every error
+under a fixed taxonomy (81.2% exact agreement; Cohen's κ = 0.686), and a third
+LLM adjudicated 62 disagreements. This is LLM-assisted qualitative coding, not
+human annotation. The dominant primary patterns are educational/explanatory
+framing (155/329, 47.1%) and lexical over-triggering (143/329, 43.5%). In
+particular, 63/76 false negatives involve framing, whereas 143/233 false
+positives are lexical over-triggers. Violence contributes the most false
+positives (118), while Sexual contributes the most false negatives (34) and
+nonzero boundary errors (11). Only 146/5,000 response category-labels are
+harmful, so 233 false alarms exceed the number of true harmful labels, yielding
+harmful-class precision 0.231 and recall 0.479 despite high accuracy. These
+findings indicate that response grading requires response-specific contextual
+calibration; they do not validate a particular deployed filter design.
 
 ## Scope and interpretation
 

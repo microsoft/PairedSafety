@@ -6,8 +6,7 @@ framework from the main paper. It shows that the framework's transition metrics
 persistence, and the escalation-mechanism split) can be computed on publicly
 shareable prompts and open / closed models — not just the internal corpus.
 
-This is a **supporting mini-eval**, not a benchmark replacement. See the
-"Do Not Do" and "Limitations" notes below.
+This is a **supporting mini-eval**, not a benchmark replacement.
 
 ## What this does
 
@@ -21,9 +20,8 @@ This is a **supporting mini-eval**, not a benchmark replacement. See the
 3. Labels **both** prompt and response severity with the paper's public rubric
    grader (0–3 severity across Hate, Sexual, Violence, Self-harm).
 4. Computes **paired** transition metrics from the (prompt-label, response-label)
-   pairs, plus a **cross-model safety comparison** (response-harm rate,
-   harmful-prompt compliance, benign drift) with a grok-4-vs-rest significance
-   test.
+  pairs, plus **cross-model safety comparisons** (response-harm rate,
+  harmful-prompt compliance, benign drift) using prompt-matched inference.
 
 ## Data sources
 
@@ -36,6 +34,8 @@ Only prompts are taken from these sets; all responses are freshly generated.
 Sampling is **stratified by the datasets' own type/harm labels** with a fixed
 seed (`20260709`) — we do not cherry-pick only extreme harmful items. See
 `01_build_prompt_set.py` for exact strata and counts.
+All harmful prompts originate from these already-public benchmarks; this
+evaluation introduces no newly authored unsafe prompts.
 
 ## Models and generation settings
 
@@ -94,20 +94,12 @@ Authentication uses `AzureCliCredential` (`az login`).
 ## Limitations
 
 - Labels are from an LLM rubric grader, not human annotators; absolute rates are
-  noisier than the paper's human-labeled corpus and should not be compared to it
-  as if matched.
+  noisier than the paper's human-labeled corpus. Consequently, agreement with
+  the human-labelled study is interpreted as directional rather than as a
+  matched replication, and absolute rates are not directly comparable.
 - Public taxonomies do not map perfectly onto the four categories; category
   coverage (especially Sexual / Self-harm) is thinner than the internal set.
 - Sample size (3,579 pairs) exceeds the internal corpus in pairs but reuses 600
   shared prompts across models, so pairs are not independent across settings.
 - Cross-model inference therefore uses prompt-matched exact McNemar tests with
   Holm correction; pooled uncertainty resamples unique prompts as clusters.
-
-## Do Not Do
-
-- Do not claim this mini-eval validates all paper conclusions.
-- Do not compare public and internal rates as if matched.
-- Treat qualitative agreement with the human-labeled study as directional, not
-  as rigorous replication.
-- All harmful prompts come from already-public benchmarks; no new unsafe prompts
-  are released.

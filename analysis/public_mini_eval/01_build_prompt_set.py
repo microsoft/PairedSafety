@@ -7,8 +7,7 @@ sample (150) = 600 unique prompts. With six models this yields approximately
 Design goals:
 - Include BOTH benign and harmful prompts so that reduction, preservation, and
   escalation (incl. drift from safe prompts) are all observable.
-- Stratify by the datasets' own labels/types; do NOT cherry-pick only extreme
-  harmful items.
+- Stratify by the datasets' own labels/types to retain a broad prompt mix.
 - Cover the four paper categories (Hate, Sexual, Violence, Self-harm) as far as
   the public taxonomies allow.
 
