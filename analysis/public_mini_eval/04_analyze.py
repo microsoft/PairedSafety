@@ -140,7 +140,7 @@ def prompt_cluster_bootstrap(plabels: dict[str, dict], responses: dict[str, dict
                              n_resamples: int = 10_000, seed: int = 20260709) -> dict:
     """Bootstrap pooled transition rates by resampling unique prompts.
 
-    Each sampled prompt carries all available model outputs, preserving the
+    Each sampled prompt carries all six model outputs, preserving the
     dependence induced by evaluating multiple models on the same prompt.
     """
     clusters = []
@@ -174,7 +174,7 @@ def prompt_cluster_bootstrap(plabels: dict[str, dict], responses: dict[str, dict
         upper = values[min(n_resamples - 1, int(0.975 * n_resamples))]
         output[metric] = [lower, upper]
     return {
-        "unit": "unique public prompt with all available model outputs",
+        "unit": "unique public prompt with all six model outputs",
         "n_unique_prompts": len(clusters),
         "n_resamples": n_resamples,
         "seed": seed,
@@ -318,7 +318,7 @@ def main() -> None:
 
     boot_ci = cluster_bootstrap["ci_95_percentile"]
     L.append("\n### Prompt-cluster bootstrap uncertainty (pooled)\n")
-    L.append(f"Resampling unit: unique prompt with all available model outputs; "
+    L.append(f"Resampling unit: unique prompt with all six model outputs; "
              f"{cluster_bootstrap['n_unique_prompts']} prompts, "
              f"{cluster_bootstrap['n_resamples']:,} resamples.")
     for metric in ("reduction", "preservation", "escalation"):

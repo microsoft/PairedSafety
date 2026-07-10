@@ -99,7 +99,7 @@ Authentication uses `AzureCliCredential` (`az login`).
   matched replication, and absolute rates are not directly comparable.
 - Public taxonomies do not map perfectly onto the four categories; category
   coverage (especially Sexual / Self-harm) is thinner than the internal set.
-- Sample size (3,579 pairs) exceeds the internal corpus in pairs but reuses 600
+- Sample size (3,600 pairs) exceeds the internal corpus in pairs but reuses 600
   shared prompts across models, so pairs are not independent across settings.
 - Cross-model inference therefore uses prompt-matched exact McNemar tests with
   Holm correction; pooled uncertainty resamples unique prompts as clusters.
