@@ -1,0 +1,7 @@
+# Reproduction dependencies for the PairedSafety analysis scripts.
+# Install with:  pip install -r requirements.txt
+numpy
+scipy
+openai>=1.0.0
+azure-identity
+pyyaml

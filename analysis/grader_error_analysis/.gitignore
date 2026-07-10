@@ -1,0 +1,4 @@
+# Contains raw prompt/response text (incl. harmful content) — never publish.
+example_candidates.json
+llm_error_codings_private.jsonl
+__pycache__/
